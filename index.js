@@ -23,16 +23,13 @@ app.get('/', function (req, res) {
 
 app.get('/up',function(req,res){
     // 获取svn更新路径，如果没有更新路径则默认为全局 
-    var p = req.params.path;
-    p = p || '';
-
-    var cmd = 'cd ~/yhd_pc/svn/'+ p + ' && svn up';
+    var cmd = 'cd ~/yhd_pc/svn/page/ && svn up';
     exec(cmd, function(err, stdout, stderr) {
         if (err) {
             // console.error(err)
             res.end(err.toString());
         } else {
-            res.end('done!');
+            res.end(stdout);
         }
     });
 
