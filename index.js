@@ -25,8 +25,7 @@ app.get('/up',function(req,res){
     var cmd = 'cd ~/yhd_pc/svn/page/ && svn up';
     exec(cmd, function(err, stdout, stderr) {
         if (err) {
-            // console.error(err)
-            res.end(err.toString());
+            res.status(500).end(err.toString());
         } else {
             res.end(stdout);
         }

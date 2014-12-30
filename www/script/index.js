@@ -2,10 +2,18 @@
 function onload(){
 
     var $update = document.getElementById('update');
+    var $output = document.getElementById('output');
     $update.addEventListener('click',function(){
         get('/up',function(res){
-            console.log(res);
+            var html = $output.innerHTML;
+            html = res + html;
+            $output.innerHTML = html;
+        },function(res){
+            var html = $output.innerHTML;
+            html = '<div class="error">'+res+'</div>' + html;
+            $output.innerHTML = html;
         });
+        $output.scrollTop = 0;
     });
 }
 
