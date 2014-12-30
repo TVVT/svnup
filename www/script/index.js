@@ -4,7 +4,7 @@ function onload(){
     var $update = document.getElementById('update');
     var $output = document.getElementById('output');
     $update.addEventListener('click',function(){
-        get('/up',function(res){
+        get('./up',function(res){
             var html = $output.innerHTML;
             html = res + html;
             $output.innerHTML = html;
