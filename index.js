@@ -26,9 +26,7 @@ app.get('/up',function(req,res){
     var cmd = 'cd ~/yhd_pc/svn/page/ && svn up';
 
     exec(testcmd,function(err,stdout,stderr){
-        if(err) {
-            res.status(500).end(err.toString());
-        }else if(stdout){
+        if(stdout){
             res.status(500).end('其他同事更新svn中....去群里吼下吧！');
         }else{
             exec(cmd, function(err, stdout, stderr) {
