@@ -1,4 +1,3 @@
 svnup
 =====
-
-svn update tool for yhd front-end PC
+svn update tool for yhd PC Front-End team.

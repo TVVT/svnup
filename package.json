@@ -18,6 +18,7 @@
   "homepage": "https://github.com/TVVT/svnup",
   "dependencies": {
     "express": "*",
-    "jade" : "*"
+    "jade" : "*",
+    "forever" : "*"
   }
 }
