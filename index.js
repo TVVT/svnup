@@ -11,7 +11,6 @@ app.set('view engine', 'jade');
 
 app.use(express.static( path.join(__dirname, './www') ,{
     setHeaders: function (res, path, stat) {
-        console.log(res,path);
         res.set('Access-Control-Allow-Origin', '*');
     }
 }));
