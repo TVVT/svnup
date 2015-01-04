@@ -4,14 +4,17 @@ function onload(){
     var $update = document.getElementById('update');
     var $output = document.getElementById('output');
     $update.addEventListener('click',function(){
+        showLoading(true);
         get('./up',function(res){
             var html = $output.innerHTML;
             html = res + html;
             $output.innerHTML = html;
+            showLoading(false);
         },function(res){
             var html = $output.innerHTML;
             html = '<div class="error">'+res+'</div>' + html;
             $output.innerHTML = html;
+            showLoading(false);
         });
         $output.scrollTop = 0;
     });
@@ -41,3 +44,13 @@ var get = function(url,callback,error,timeout,outtime,contentType){
     }
     xhr.send(null);
 };
+
+
+function showLoading(b){
+    var $loading = document.getElementById('loading');
+    if(b){
+        $loading.classList.add('show');
+    }else{
+        $loading.classList.remove('show');
+    }
+}
